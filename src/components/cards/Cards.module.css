@@ -19,7 +19,7 @@
     padding: 20px 10px 10px 10px;
   }
   
-  .face {
+  .textos {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -30,17 +30,17 @@
     align-items: center;
   }
   
-  .face1 h2 {
+  .textos1 h2 {
     margin: 0;
     padding: 0;
     font-size: 1em;
   }
   
-  .face.face2 {
+  .textos.textos2 {
     transition: 0.5s;
   }
   
-  .face.face2 h2 {
+  .textos.textos2 h2 {
     margin: 0;
     padding: 0;
     font-size: 12em;
@@ -50,20 +50,20 @@
     z-index: 10;
   }
   
-  .card:hover .face.face2 {
+  .card:hover .textos.textos2 {
     height: 60px;
   }
   
-  .card:hover .face.face2 h2 {
+  .card:hover .textos.textos2 h2 {
     font-size: 2em;
   }
   
-  .card:nth-child(1) .face.face2 {
+  .card:nth-child(1) .textos.textos2 {
     background-image: linear-gradient(40deg, #fffc00 0%, #fc00ff 45%, #00fffc 100%);
     border-radius: 15px;
   }
   
-  .card:nth-child(2) .face.face2 {
+  .card:nth-child(2) .textos.textos2 {
     background-image: linear-gradient(40deg, #fc00ff 0%, #00fffc 45%, #fffc00 100%);
     border-radius: 15px;
   }

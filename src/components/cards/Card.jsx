@@ -8,7 +8,7 @@ export default function Card(props) {
    <>
       <div className={styles.container}>
          <div className={styles.card}>
-            <div className={`${styles.face} ${styles.face1}`}>
+            <div className={`${styles.textos} ${styles.textos1}`}>
                <div className={styles.content}>
                   <div className={styles.buttonContainer}>
                      <button className={styles.mButton}>
@@ -27,7 +27,7 @@ export default function Card(props) {
                   
                </div>
             </div>
-               <div className={`${styles.face} ${styles.face2}`}>
+               <div className={`${styles.textos} ${styles.textos2}`}>
                   <h2>{id}</h2>
                </div>   
          </div>
