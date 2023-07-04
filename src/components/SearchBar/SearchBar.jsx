@@ -16,7 +16,10 @@ const handleChange = (e) => {
          className={styles.buscadorInput} 
          value={id}
          type='search' placeholder="BRO! Type here your ID" />
-         <button className={styles.buscadorBoton} onClick={buscar} type="button">Agregar</button>
+         <button 
+         className={styles.buscadorBoton} 
+         onClick={() => buscar(id<826?id:826)} 
+         type="button">Agregar</button>
       </div>
    );
 }

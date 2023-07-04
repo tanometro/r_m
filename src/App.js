@@ -1,27 +1,37 @@
-import './App.css';
-import Card from './components/cards/Card.jsx';
+import './App.css'
 import Cards from './components/cards/Cards';
 import Nav from './components/Nav/Nav';
-import SearchBar from './components/SearchBar/SearchBar.jsx';
 import { useState } from 'react';
 import axios from "axios"
 
 function App() {
    const [characters, setCharacters] = useState([]);
    const onSearch = (id) => {
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({data}) => {
-         setCharacters((characters) => [...characters, data])
-      })
-      
+      if(id < 827){
+         axios(`https://rickandmortyapi.com/api/character/${id}`).then(({data}) => {
+            if(data.name) {
+               setCharacters((characters) => [...characters, data])
+            }
+           else {
+            window.alert("Oye bro este ID no existe, busca otro, es gratarola")
+           }
+         
+         })
+      }
+   }
+   const onClose = (id) => {
+      const nuevosCharacters = characters.filter((character) => parseInt(character.id) !== parseInt(id))
+      setCharacters(nuevosCharacters)
    }
    return (
       <div className='App'>
          <Nav buscar={onSearch}/>
          <Cards
          characters={characters}
-         onClose={() => window.alert('Emulamos que se cierra la card')} />
+         onClose={onClose} />
       </div>
    );
 }
 
 export default App;
+

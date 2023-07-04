@@ -5,7 +5,7 @@ export default function Nav (props) {
     const {buscar} = props;
     return (
     <nav className={styles.navDiv} >
-    <SearchBar onSearch={buscar}/>     
+    <SearchBar buscar={buscar}/>     
     </nav>
     )
 }
