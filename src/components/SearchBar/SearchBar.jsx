@@ -10,7 +10,7 @@ const handleChange = (e) => {
 }
 
    return (
-      <div className={styles.searchDiv} >
+      <div>
          <input
          onChange={handleChange}
          className={styles.buscadorInput} 

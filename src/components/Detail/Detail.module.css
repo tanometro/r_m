@@ -1,0 +1,107 @@
+.detailDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleDiv {
+    width: 30%;
+}
+.detailTitle {
+    text-align: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding: 0 10px 0 10px;
+}
+
+.male {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    width: 800px;
+    height: 500px;
+    background: linear-gradient(120deg, #01dde163 0%, #0f00b758 100%);
+    border-radius: 15px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+    margin: 20px 0 0 10px;
+    padding: 0px 0 0 0;
+}
+
+
+.male h2 {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.male h2:hover {
+    background-image: linear-gradient(120deg, #d90012c8, #0033ff8b);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.female {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    width: 800px;
+    height: 500px;
+    background: linear-gradient(120deg, #ff7fcc63 0%, #17ffae58 100%);
+    border-radius: 15px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+    margin: 20px 0 0 10px;
+    padding: 0px 0 0 0;
+}
+
+
+.female h2 {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.female h2:hover {
+    background-image: linear-gradient(120deg, #d90012c8, #0033ff8b);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.detailImg {
+    width: 40%;
+    height: 60%;
+    border-radius: 30px;
+    align-items: end;
+}
+
+.other {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    width: 800px;
+    height: 500px;
+    background: linear-gradient(120deg, #48484863 0%, #16252058 100%);
+    border-radius: 15px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+    margin: 20px 0 0 10px;
+    padding: 0px 0 0 0;
+}
+
+
+.other h2 {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.other h2:hover {
+    background-image: linear-gradient(120deg, #d90012c8, #0033ff8b);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

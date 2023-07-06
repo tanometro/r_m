@@ -1,0 +1,19 @@
+.navDiv {
+    padding: 20px 10px 10px 10px;
+    display: flex;  
+    justify-content: space-evenly; 
+    align-items: center;
+    background-color: aliceblue;
+    width: 100%;
+    box-shadow: 1px -5px 21px 6px rgba(255,68,0,0.36);
+}
+
+.navImg {
+    border-radius: 30%;
+    height: 100px;
+    width: 100px;
+}
+
+.navItem {
+    text-transform: capitalize;
+}

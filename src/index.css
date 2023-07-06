@@ -7,14 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Fira Sans";
   min-height: 100vh;
   background-color: #a9c9ff;
   background: linear-gradient(180deg, #a9c9ff 0%, #ffbbec 100%);
-  padding-bottom: 1000px;
 }
 
 code {
