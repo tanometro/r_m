@@ -14,6 +14,9 @@ export default function Nav (props) {
     <NavLink to="/about">
         <span className={styles.navItem}>ABOUT ME</span>
     </NavLink>
+    <NavLink to='/favorites'>
+        <span className={styles.navItem}>Favorites</span>
+    </NavLink>
     <SearchBar buscar={buscar}/>     
     </nav>
     )
