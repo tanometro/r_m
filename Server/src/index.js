@@ -1,25 +1,24 @@
 var http = require("http");
 const PORT = 3001;
-const characters = require('./data.js');
+const characters = require("./Utils/data")
 
 http.createServer((req, res)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
+    const {url} = req;
 
     if(url.includes("/rickandmorty/character/")){
+       
         let id = url.split("/").pop();
+
         let foundCharacter = characters.find(character => character.id === parseInt(id))
+       
         if(foundCharacter){
-            return res.json({
-            success: true,
-            character: foundCharacter,
-           });
+            res.writeHead(200, {"Content-type": "text/plain"});
+            res.end(JSON.stringify(foundCharacter));
         }
         else {
-            return res.json({
-                success: false,
-                msj: 'No se encontró ningún personaje con ese id',
-                             })
+            res.writeHead(404, {"Content-type": "text/plain"});
+            res.end("No se encontró el personaje con ese ID");
             }
     };
-})
-.listen(PORT, "localhost")
+}).listen(PORT, "localhost")
