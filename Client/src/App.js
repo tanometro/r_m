@@ -31,17 +31,23 @@ function App() {
 
    const onSearch = (id) => {
       if(id < 827){
-         axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({data}) => {
+        
+            axios(`http://localhost:3001/rickandmorty/character/${id}`)
+            .then(({data}) => {
             if(data.name) {
                setCharacters((characters) => [...characters, data])
             }
            else {
             window.alert("Oye bro este ID no existe, busca otro, es gratarola")
            }
-         
          })
+         .catch((error) =>{
+            console.log(error)
+            window.alert(error.response.data)
+         })
+         }
       }
-   }
+
    const onClose = (id) => {
       const nuevosCharacters = characters.filter((character) => parseInt(character.id) !== parseInt(id))
       setCharacters(nuevosCharacters)

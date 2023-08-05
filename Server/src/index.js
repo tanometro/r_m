@@ -1,6 +1,6 @@
 var http = require("http");
-const PORT = 3001;
-const characters = require("./Utils/data")
+const PORT = 3001; 
+const getCharById = require("./controllers/getCharById")
 
 http.createServer((req, res)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -10,7 +10,7 @@ http.createServer((req, res)=>{
        
         let id = url.split("/").pop();
 
-        let foundCharacter = characters.find(character => character.id === parseInt(id))
+        let foundCharacter = getCharById(id);
        
         if(foundCharacter){
             res.writeHead(200, {"Content-type": "text/plain"});
