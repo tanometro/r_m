@@ -6,7 +6,6 @@ import { useState } from "react";
 
 
 export function Favorites({favorites}) {
-    
     const dispatch = useDispatch()
     const [aux, setAux] = useState(false)
 
@@ -36,7 +35,6 @@ export function Favorites({favorites}) {
         </select>
 
             {
-                
                 favorites.map((fav) => (
                     <Card
                         key={fav.id}
