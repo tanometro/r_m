@@ -86,7 +86,7 @@ function App() {
          window.alert("Oye bro este ID no existe, busca otro, es gratarola")
       }
       }
-      catch(error) {
+      catch(error){
          console.log(error)
          window.alert(error.response.data)
       }
