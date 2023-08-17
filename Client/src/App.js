@@ -18,11 +18,21 @@ function App() {
    const navigate = useNavigate();
 
 
-   const login = (userData) => {
-      if(EMAIL == userData.email && PASSWORD == userData.password) {
-         setAccess(true);
-         navigate("/home");
-      }
+   // const login = (userData) => {
+   //    if(EMAIL == userData.email && PASSWORD == userData.password) {
+   //       setAccess(true);
+   //       navigate("/home");
+   //    }
+   // }
+
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
 
    useEffect(() => {
@@ -31,17 +41,23 @@ function App() {
 
    const onSearch = (id) => {
       if(id < 827){
-         axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({data}) => {
+        
+            axios(`http://localhost:3001/rickandmorty/character/${id}`)
+            .then(({data}) => {
             if(data.name) {
                setCharacters((characters) => [...characters, data])
             }
            else {
             window.alert("Oye bro este ID no existe, busca otro, es gratarola")
            }
-         
          })
+         .catch((error) =>{
+            console.log(error)
+            window.alert(error.response.data)
+         })
+         }
       }
-   }
+
    const onClose = (id) => {
       const nuevosCharacters = characters.filter((character) => parseInt(character.id) !== parseInt(id))
       setCharacters(nuevosCharacters)
