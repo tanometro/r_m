@@ -25,46 +25,81 @@ function App() {
    //    }
    // }
 
-   function login(userData) {
+   // function login(userData) {
+   //    const { email, password } = userData;
+   //    const URL = 'http://localhost:3001/rickandmorty/login/';
+   //    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+   //       const { access } = data;
+   //       setAccess(data);
+   //       access && navigate('/home');
+   //    });
+   // }
+
+   async function login(userData) {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-         const { access } = data;
-         setAccess(data);
-         access && navigate('/home');
-      });
+      try {
+        const response = await axios.get(URL + `?email=${email}&password=${password}`)
+        
+        if(response.data){
+         const { access } = response.data;
+            setAccess(userData);
+            access && navigate('/home');
+        }
+      }
+      catch (error) {
+         if(error) throw new Error ("No se pudo verificar los datos")
+      }
+      
    }
 
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
 
-   const onSearch = (id) => {
-      if(id < 827){
-        
-            axios(`http://localhost:3001/rickandmorty/character/${id}`)
-            .then(({data}) => {
-            if(data.name) {
-               setCharacters((characters) => [...characters, data])
-            }
-           else {
-            window.alert("Oye bro este ID no existe, busca otro, es gratarola")
-           }
-         })
-         .catch((error) =>{
-            console.log(error)
-            window.alert(error.response.data)
-         })
-         }
-      }
+   // const onSearch = (id) =>{
+   //    if(id<827){
+   //       axios(`http://localhost:3001/rickandmorty/character/${id}`)
+   //       .then(({data}) => {
+   //          if(data.name) {
+   //             setCharacters((characters) => [...characters, data])
+   //          }
+   //          else{
+   //             window.alert("Oye bro este ID no existe, busca otro, es gratarola")
+   //          }
+   //       })
+   //       .catch((error) =>{
+   //          console.log(error)
+   //          window.alert(error.response.data)
+   //       })
+   //    }
+   // }
 
+   const onSearch = async (id) =>{
+      if(id<827){
+      try {
+      const {data} = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+      if(data.name) {
+         setCharacters((characters) => [...characters, data])
+      }
+      else{
+         window.alert("Oye bro este ID no existe, busca otro, es gratarola")
+      }
+      }
+      catch(error) {
+         console.log(error)
+         window.alert(error.response.data)
+      }
+      }
+   }
+
+
+   const location = useLocation();
+   
    const onClose = (id) => {
       const nuevosCharacters = characters.filter((character) => parseInt(character.id) !== parseInt(id))
       setCharacters(nuevosCharacters)
    }
-
-   const location = useLocation();
-
 
    return (
       <div className='App'>
